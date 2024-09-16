@@ -1,0 +1,54 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<IsPackable>true</IsPackable>
+		<Version>1.0.0</Version>
+		<Title>DevToys.Extensions.CSharpCalculator</Title>
+		<Description>This is a calculator using a C# script.</Description>
+		<PackageProjectUrl>https://github.com/pierre3/DevToys.Extensions.CSharpCalculator</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/pierre3/DevToys.Extensions.CSharpCalculator</RepositoryUrl>
+		<Authors>pierre3</Authors>
+		<PackageTags>devtoys-app</PackageTags>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<Copyright>© pierre3</Copyright>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="CsvHelper" Version="33.0.1" />
+		<PackageReference Include="DevToys.Api" Version="2.0.5-preview" />
+		<PackageReference Include="Microsoft.CodeAnalysis.CSharp.Scripting" Version="4.11.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\DevToys.Extensions.CSharpCalculator.Library\DevToys.Extensions.CSharpCalculator.Library.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Compile Update="CSharpCalculator.Designer.cs">
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>CSharpCalculator.resx</DependentUpon>
+		</Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+		<EmbeddedResource Update="CSharpCalculator.resx">
+			<Generator>ResXFileCodeGenerator</Generator>
+			<LastGenOutput>CSharpCalculator.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
+	</ItemGroup>
+
+	<Target Name="IncludeAllFilesInTargetDir" BeforeTargets="_GetPackageFiles">
+		<ItemGroup>
+			<None Include="$(OutputPath)\**">
+				<Pack>true</Pack>
+				<PackagePath>lib\net8.0</PackagePath>
+			</None>
+		</ItemGroup>
+	</Target>
+
+</Project>

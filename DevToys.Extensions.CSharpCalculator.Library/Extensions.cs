@@ -41,39 +41,34 @@ public static class Extensions
             yield return item;
         }
     }
-    public static IEnumerable<T> OutAll<T>(this IEnumerable<T> source,
+    public static void OutAll<T>(this IEnumerable<T> source,
         Action<IEnumerable<T>> action)
     {
         action?.Invoke(source);
-        return source;
     }
 
-    public static IEnumerable<T> OutAll<T, TArg1>(this IEnumerable<T> source,
+    public static void OutAll<T, TArg1>(this IEnumerable<T> source,
         Action<IEnumerable<T>, TArg1> action, TArg1 arg1)
     {
         action?.Invoke(source, arg1);
-        return source;
     }
 
-    public static IEnumerable<T> OutAll<T, TArg1, TArg2>(this IEnumerable<T> source,
+    public static void OutAll<T, TArg1, TArg2>(this IEnumerable<T> source,
         Action<IEnumerable<T>, TArg1, TArg2> action, TArg1 arg1, TArg2 arg2)
     {
         action?.Invoke(source, arg1, arg2);
-        return source;
     }
 
-    public static IEnumerable<T> OutAll<T, TArg1>(this IEnumerable<T> source,
+    public static void OutAll<T, TArg1>(this IEnumerable<T> source,
         Action<IEnumerable<T>, TArg1, Func<T, string>> action, TArg1 arg1, Func<T, string> format)
     {
         action?.Invoke(source, arg1, format);
-        return source;
     }
 
-    public static IEnumerable<T> OutAll<T, TArg1, TArg2, TArg3>(this IEnumerable<T> source,
+    public static void OutAll<T, TArg1, TArg2, TArg3>(this IEnumerable<T> source,
         Action<IEnumerable<T>, TArg1, TArg2, TArg3> action, TArg1 arg1, TArg2 arg2, TArg3 arg3)
     {
         action?.Invoke(source, arg1, arg2, arg3);
-        return source;
     }
 
 
